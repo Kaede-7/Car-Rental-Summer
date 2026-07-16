@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import authRoutes from "./routes/authRoutes.js";
 import carRoutes from "./routes/carRoutes.js";
 import bookingRoutes from "./routes/bookingRoutes.js";
+import taskRoutes from "./routes/taskRoutes.js";
 
 // Load environment variables
 dotenv.config();
@@ -58,6 +59,7 @@ app.get("/", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/cars", carRoutes);
 app.use("/api/bookings", bookingRoutes);
+app.use("/api/tasks", taskRoutes);
 
 // Hello World from MongoDB Route
 app.get("/db-hello", async (req, res) => {
