@@ -2,6 +2,9 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import authRoutes from "./routes/authRoutes.js";
+import carRoutes from "./routes/carRoutes.js";
+import bookingRoutes from "./routes/bookingRoutes.js";
 
 // Load environment variables
 dotenv.config();
@@ -50,6 +53,11 @@ async function seedDatabase() {
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
+
+// Registered API Routes
+app.use("/api/auth", authRoutes);
+app.use("/api/cars", carRoutes);
+app.use("/api/bookings", bookingRoutes);
 
 // Hello World from MongoDB Route
 app.get("/db-hello", async (req, res) => {
